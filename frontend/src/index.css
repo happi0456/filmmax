@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-paper text-ink antialiased;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+}
+
+@layer components {
+  .label {
+    @apply block text-xs uppercase tracking-widest text-ink/60 mb-1;
+  }
+  .input {
+    @apply w-full border-b border-ink/30 bg-transparent py-2 focus:outline-none focus:border-accent;
+  }
+  .btn {
+    @apply px-4 py-2 border border-ink text-sm tracking-wide transition
+           hover:bg-ink hover:text-paper disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-accent {
+    @apply bg-accent border-accent text-paper hover:bg-ink hover:border-ink;
+  }
+  .card {
+    @apply border border-ink/15 bg-white/60 p-6;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body * {
+    visibility: hidden;
+  }
+  #receipt,
+  #receipt * {
+    visibility: visible;
+  }
+  #receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80mm;
+    box-shadow: none;
+    border: none;
+  }
+}
